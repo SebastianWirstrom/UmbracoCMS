@@ -1,0 +1,65 @@
+#about-us {
+    .container {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        column-gap: 65px;
+        
+        .about-content {
+            margin-top: 60px;
+
+            .about-text {
+                #quote {
+                    font-style: italic;
+                    font-size: 1.2em;
+                    margin-top: 20px;
+                }
+
+                .about-text-box {
+                    margin-top: 20px;
+                    font-size: 0.5em;
+                }
+            }
+
+            .about-title {
+                margin-bottom: 20px;
+            }
+        }
+        
+        .about-form {
+            margin-top: -70px;
+            z-index: 2;
+            border: 1px solid var(--color-gray);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+            .form-title {
+                padding: 15px 0 5px 30px;
+            }
+
+            p {
+                margin-top: 10px;
+                font-size: 0.8em;
+            }
+
+            .about-form-group {
+                display: flex;
+                flex-direction: column;
+                padding: 15px 30px 25px 30px;
+                font-style: italic;
+                row-gap: 15px;
+                
+                input {
+                    padding: 15px;
+                    border: 2px solid var(--color-gray);
+                    font-style: italic;
+                }
+
+                select {
+                    padding: 15px;
+                    border: 2px solid var(--color-gray); 
+                    background-color: var(--color-light);
+                }
+            }
+        }
+
+    }
+}

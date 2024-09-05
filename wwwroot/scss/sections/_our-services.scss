@@ -1,0 +1,34 @@
+.our-services {
+    .container {
+        .our-services-title {
+            padding: 50px 290px 50px 290px;
+            text-align: center;
+        }
+
+        .services-boxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 30px;
+
+            .services-box {
+                background-color: var(--color-light);
+                border: 0px solid var(--color-gray);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+                &:hover {
+                    transition: ease-in-out 0.2s;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+                }
+
+                .services-box-title {
+                    padding: 15px 0 5px 20px;
+                }
+
+                p {
+                    padding: 15px 0 20px 20px;
+                }
+            }
+        }
+    }
+}

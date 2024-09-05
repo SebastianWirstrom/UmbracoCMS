@@ -1,0 +1,34 @@
+header {
+    .header-banner {
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            p {
+                margin-top: 15px;
+            }
+        }
+    }
+
+    .header-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        .header-nav {
+            margin-top: 20px;
+            a {
+                margin-right: 4rem;
+                color: var(--color-primary);
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+
+
+

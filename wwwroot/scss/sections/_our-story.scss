@@ -1,0 +1,41 @@
+.our-story {
+    margin-top: 100px;
+
+    .container {
+        text-align: center;
+        position: relative;
+        z-index: 0;
+
+        .our-story-content {
+
+            img {
+                position: absolute;
+                top: 50px;
+                right: 0;
+                object-fit: cover;
+                z-index: -2;
+            }
+
+            .our-story-title {
+
+                #our-story-clients {
+                    color: var(--color-secondary);
+                }
+            }
+
+            p {
+                padding: 50px 200px 50px 200px;
+            }
+    
+            a {
+                margin-bottom: 50px;
+            }
+        }
+
+        .our-story-image {
+            img {
+                z-index: 1;
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+#hero-slider {  
+    position: relative; 
+    z-index: 2;
+   
+        .background-image {             
+            position: absolute;    
+            right: 0;
+            top: 0;
+            z-index: -1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+        }
+   
+}
