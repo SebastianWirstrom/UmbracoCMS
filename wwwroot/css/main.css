@@ -218,6 +218,15 @@ nav {
   font-size: 16px;
 }
 
+blockquote {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
 header .header-banner .header-content {
   display: flex;
   justify-content: space-between;
@@ -257,58 +266,9 @@ header .header-main .header-nav a {
   z-index: 10;
 }
 
-#about-us .container {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  -moz-column-gap: 65px;
-       column-gap: 65px;
+#about-us {
+  padding-top: 200px;
 }
-#about-us .container .about-content {
-  margin-top: 60px;
-}
-#about-us .container .about-content .about-text #quote {
-  font-style: italic;
-  font-size: 1.2em;
-  margin-top: 20px;
-}
-#about-us .container .about-content .about-text .about-text-box {
-  margin-top: 20px;
-  font-size: 0.5em;
-}
-#about-us .container .about-content .about-title {
-  margin-bottom: 20px;
-}
-#about-us .container .about-form {
-  margin-top: -70px;
-  z-index: 2;
-  border: 1px solid var(--color-gray);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-#about-us .container .about-form .form-title {
-  padding: 15px 0 5px 30px;
-}
-#about-us .container .about-form p {
-  margin-top: 10px;
-  font-size: 0.8em;
-}
-#about-us .container .about-form .about-form-group {
-  display: flex;
-  flex-direction: column;
-  padding: 15px 30px 25px 30px;
-  font-style: italic;
-  row-gap: 15px;
-}
-#about-us .container .about-form .about-form-group input {
-  padding: 15px;
-  border: 2px solid var(--color-gray);
-  font-style: italic;
-}
-#about-us .container .about-form .about-form-group select {
-  padding: 15px;
-  border: 2px solid var(--color-gray);
-  background-color: var(--color-light);
-}
-
 .our-services .container .our-services-title {
   padding: 50px 290px 50px 290px;
   text-align: center;

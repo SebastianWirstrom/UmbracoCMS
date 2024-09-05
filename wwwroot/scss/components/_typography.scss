@@ -39,3 +39,10 @@ h6 {
 nav {
     font-size: 16px;
 }
+
+blockquote {
+    @include quotation;
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
