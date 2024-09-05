@@ -254,6 +254,7 @@ header .header-main .header-nav a {
 #hero-slider {
   position: relative;
   z-index: 2;
+  padding-top: 100px;
 }
 #hero-slider .background-image {
   position: absolute;
@@ -267,32 +268,11 @@ header .header-main .header-nav a {
 }
 
 #about-us {
-  padding-top: 200px;
+  padding-top: 250px;
 }
-.our-services .container .our-services-title {
-  padding: 50px 290px 50px 290px;
-  text-align: center;
-}
-.our-services .container .services-boxes {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 30px;
-}
-.our-services .container .services-boxes .services-box {
-  background-color: var(--color-light);
-  border: 0px solid var(--color-gray);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.our-services .container .services-boxes .services-box:hover {
-  transition: ease-in-out 0.2s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-.our-services .container .services-boxes .services-box .services-box-title {
-  padding: 15px 0 5px 20px;
-}
-.our-services .container .services-boxes .services-box p {
-  padding: 15px 0 20px 20px;
+#our-services .container .dynamic-container {
+  -moz-column-gap: 50px;
+       column-gap: 50px;
 }
 
 .our-story {
