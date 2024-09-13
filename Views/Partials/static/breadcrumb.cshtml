@@ -8,23 +8,26 @@
     var selection = Model.Ancestors().ToArray(); 
     var homePageDisplayName = "Home";
     var isFirstItem = true;
+    var homePageUrl = Model.Root().Url(PublishedUrlProvider); 
+    var isHomePage = Model.Url(PublishedUrlProvider).Equals(homePageUrl, StringComparison.InvariantCultureIgnoreCase); 
 }
 
 <section class="page-title">
     <div class="container">
-        <h1>@ViewBag.Title</h1>
+        @if (!isHomePage) // Visa inte titeln om vi är på startsidan
+        {
+            <h1>@ViewBag.Title</h1>
+        }
 
-        @if (selection?.Length > 0)
+        @if (selection?.Length > 0 && !isHomePage) // Visa inte breadcrumbs om vi är på startsidan
         {
             <ul class="breadcrumb">
-                
                 @foreach (var item in selection.OrderBy(x => x.Level))
                 {
                     var displayName = isFirstItem ? homePageDisplayName : item.Name;
                     <li><a href="@item.Url(PublishedUrlProvider)">@displayName</a></li>
                     isFirstItem = false;
                 }
-                
                 <li class="active">@Model.Name</li>
             </ul>
         }
