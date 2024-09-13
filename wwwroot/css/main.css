@@ -302,9 +302,65 @@ header .container .search {
 #about-us {
   padding-top: 250px;
 }
-#our-services .container .dynamic-container {
-  -moz-column-gap: 50px;
-       column-gap: 50px;
+#our-services .container .services {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+#our-services .container .services a {
+  border: 1px solid #eaeaea;
+}
+#our-services .container .services a .item h4 {
+  padding: 20px 0 5px 20px;
+}
+#our-services .container .services a .footer p {
+  font-size: 0.8em;
+  color: var(--color-primary);
+  padding: 20px;
+}
+#our-services .container .pagination .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#our-services .container .pagination .container .change {
+  color: var(--color-dark);
+  text-decoration: none;
+  font-weight: 600;
+}
+#our-services .container .pagination .container .change.inactive {
+  color: #cfcfcf;
+  text-decoration: none;
+}
+#our-services .container .pagination .container .change.inactive:hover {
+  color: #cfcfcf;
+}
+#our-services .container .pagination .container .change:hover {
+  color: var(--color-secondary);
+}
+#our-services .container .pagination .container .pages {
+  display: flex;
+}
+#our-services .container .pagination .container .pages .number {
+  list-style-type: none;
+  margin-right: 35px;
+}
+#our-services .container .pagination .container .pages .number a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  color: var(--color-dark);
+  text-decoration: none;
+}
+#our-services .container .pagination .container .pages .number a:hover {
+  color: var(--color-secondary);
+}
+#our-services .container .pagination .container .pages .number.active a {
+  border: 2px solid #eaeaea;
 }
 
 .our-story {

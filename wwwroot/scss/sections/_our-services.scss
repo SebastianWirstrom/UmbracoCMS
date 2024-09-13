@@ -1,8 +1,91 @@
 #our-services {
     .container {
-        .dynamic-container {
-            column-gap: 50px;
+        .services {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+
+            a {
+                border: 1px solid #eaeaea;
+
+                .item {
+                    h4 {
+                        padding: 20px 0 5px 20px;
+                    }
+                }
+
+                .body {
+
+                }
+
+                .footer {
+                    p {
+                        font-size: 0.8em;
+                        color: var(--color-primary);
+                        padding: 20px;
+                    }
+                }
+            }
+        }
+
+        .pagination {   
+
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+
+                .change {
+                    color: var(--color-dark);
+                    text-decoration: none;
+                    font-weight: 600;                 
+
+                    &.inactive {
+                        color: #cfcfcf;
+                        text-decoration: none;    
+
+                        &:hover {
+                            color: #cfcfcf;
+                        }
+                    }
+
+                    &:hover {
+                        color: var(--color-secondary);
+                    }
+                }
+
+                .pages {
+                    display: flex;
+                    
+
+                    .number {
+                        list-style-type: none; 
+                        margin-right: 35px;
+                        a {
+                            display: inline-block;
+                            width: 40px; 
+                            height: 40px;
+                            line-height: 40px; 
+                            text-align: center;
+                            border-radius: 50%; 
+                            border: 1px solid transparent; 
+                            color: var(--color-dark); 
+                            text-decoration: none;
+                            
+
+                            &:hover {
+                                
+                                color: var(--color-secondary);
+                            }
+                        }
+
+                        &.active a {
+                            border: 2px solid #eaeaea; 
+                        }
+                    }
+                }
+            }
         }
     }
-    
 }
