@@ -4,7 +4,7 @@
 	Layout = "mainLayout.cshtml";
 	ViewBag.Title = Model?.Name;
 }
-
+@await Html.PartialAsync("partials/static/breadcrumb.cshtml")
 <section class="service-details">
 	<div class="container">
 		@Model.Value("pageContent")

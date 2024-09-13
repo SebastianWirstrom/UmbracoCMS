@@ -1,5 +1,20 @@
 #our-services {
     .container {
+
+        .headline {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 50px;
+            padding-top: 50px;
+
+            .title {
+                text-align: center;
+                margin-top: 40px;
+                margin-bottom: 0;
+                width: 50%;
+            }
+        }
         .services {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -29,7 +44,7 @@
         }
 
         .pagination {   
-
+            
             .container {
                 display: flex;
                 justify-content: center;

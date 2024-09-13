@@ -10,26 +10,36 @@
     var isFirstItem = true;
     var homePageUrl = Model.Root().Url(PublishedUrlProvider); 
     var isHomePage = Model.Url(PublishedUrlProvider).Equals(homePageUrl, StringComparison.InvariantCultureIgnoreCase); 
+    var backgroundImage = "/media/h3dipikd/breadcrumb-bg.svg";
 }
 
-<section class="page-title">
+<section id="page-breadcrumb">
     <div class="container">
-        @if (!isHomePage) // Visa inte titeln om vi är på startsidan
+        @if (!isHomePage) 
         {
-            <h1>@ViewBag.Title</h1>
+            <div id="bg-img-1">
+                <img src="@backgroundImage">
+            </div>
+            
+            <h2>@ViewBag.Title</h2>
+            <div id="bg-img-2">
+                <img src="@backgroundImage">
+            </div>
+            
         }
 
-        @if (selection?.Length > 0 && !isHomePage) // Visa inte breadcrumbs om vi är på startsidan
+        @if (selection?.Length > 0 && !isHomePage)
         {
-            <ul class="breadcrumb">
+            <div class="breadcrumb">
                 @foreach (var item in selection.OrderBy(x => x.Level))
                 {
                     var displayName = isFirstItem ? homePageDisplayName : item.Name;
                     <li><a href="@item.Url(PublishedUrlProvider)">@displayName</a></li>
                     isFirstItem = false;
                 }
-                <li class="active">@Model.Name</li>
-            </ul>
+                <p>></p>
+                <li class="active"> @Model.Name</li>
+            </div>
         }
     </div>
 </section>

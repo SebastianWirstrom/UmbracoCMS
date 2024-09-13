@@ -283,6 +283,70 @@ header .container .search {
   }
 }
 
+#page-breadcrumb {
+  background-color: var(--color-gray);
+  padding-top: 20px;
+  padding-bottom: 70px;
+  position: relative;
+  box-shadow: inset 0 10px 20px -10px rgba(0, 0, 0, 0.06), inset 0 -10px 20px -10px rgba(0, 0, 0, 0.06);
+}
+#page-breadcrumb #bg-img-1 {
+  position: absolute;
+  top: -20px;
+  right: -400px;
+}
+#page-breadcrumb #bg-img-1 img {
+  width: 80%;
+  height: auto;
+  opacity: 70%;
+}
+#page-breadcrumb #bg-img-2 {
+  transform: rotate(180deg);
+  position: absolute;
+  bottom: -70px;
+  left: -400px;
+}
+#page-breadcrumb #bg-img-2 img {
+  width: 80%;
+  height: auto;
+  opacity: 70%;
+}
+#page-breadcrumb .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#page-breadcrumb .container h2 {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+#page-breadcrumb .container .breadcrumb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  list-style-type: none;
+}
+#page-breadcrumb .container .breadcrumb a {
+  font-size: 12px;
+  color: var(--color-primary);
+}
+#page-breadcrumb .container .breadcrumb a:hover {
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+#page-breadcrumb .container .breadcrumb p {
+  margin-top: 20px;
+  font-size: 12px;
+}
+#page-breadcrumb .container .breadcrumb .active {
+  color: var(--color-secondary);
+  margin-top: 3px;
+  font-size: 12px;
+}
+
 #hero-slider {
   position: relative;
   z-index: 2;
@@ -301,6 +365,19 @@ header .container .search {
 
 #about-us {
   padding-top: 250px;
+}
+#our-services .container .headline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+#our-services .container .headline .title {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 0;
+  width: 50%;
 }
 #our-services .container .services {
   display: grid;

@@ -2,7 +2,9 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
 	Layout = "mainLayout.cshtml";
+	ViewBag.Title = Model.Name;
 }
+
 @{
 	var selection = Umbraco.Content(Guid.Parse("185e7c3a-18a3-452d-9e04-8cb9ed5625a1"))
     .ChildrenOfType("serviceItemTemplate")
@@ -14,7 +16,9 @@
 	var totalItems = selection?.Count() ?? 0;
 	var pagedItems = selection?.Skip((currentPage - 1) * itemsPerPage).Take(itemsPerPage);
 }
+
 @await Html.PartialAsync("partials/static/breadcrumb.cshtml")
+
 <section id="our-services">
 	<div class="container">
 		@if (!string.IsNullOrEmpty(Model.Value("customHeadline").ToString())) {
@@ -22,6 +26,7 @@
 				<h2 class="title">@Model.Value("customHeadline")</h2>
 			</div>
 		}
+		
 		<div class="services">
 			@if (pagedItems != null) {
 				@foreach (var item in pagedItems) {
