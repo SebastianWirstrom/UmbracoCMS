@@ -7,6 +7,12 @@
 	var selection = Umbraco.Content(Guid.Parse("185e7c3a-18a3-452d-9e04-8cb9ed5625a1"))
     .ChildrenOfType("serviceItemTemplate")
     .Where(x => x.IsVisible());
+
+	var itemsPerPage = 6;
+	if (!int.TryParse(Context.Request.Query["page"], out int currentPage))
+		currentPage = 1;
+	var totalItems = selection?.Count() ?? 0;
+	var pagedItems = selection?.Skip((currentPage - 1) * itemsPerPage).Take(itemsPerPage);
 }
 
 <section id="our-services">
@@ -17,23 +23,57 @@
 			</div>
 		}
 		<div class="services">
-			@foreach (var item in selection) {
-				var image = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
-				var preamble = item?.Value<string>("preamble") ?? "";
+			@if (pagedItems != null) {
+				@foreach (var item in pagedItems) {
+					var image = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
+					var preamble = item?.Value<string>("preamble") ?? "";
 
-				<a href="@item.Url()">
-					<div class="item">
-						<h4>@item.Name()</h4>
-					</div>
-					<div class="body">
-						<img src="@image" alt="@item.Name()">
-					</div>
-					<div class="footer">
-						<p>@preamble</p>
-					</div>
-				</a>
+					<a href="@item.Url()">
+						<div class="item">
+							<h4>@item.Name()</h4>
+						</div>
+						<div class="body">
+							<img src="@image" alt="@item.Name()">
+						</div>
+						<div class="footer">
+							<p>@preamble</p>
+						</div>
+					</a>
+				}
 			}
 		</div>
+
+		<section class="pagination">
+			<div class="container">
+
+				@if (currentPage > 1) 
+				{
+					<a href="?page=@(currentPage - 1)" class="change">PREV</a>
+				}
+				else 
+				{
+					<span class="change inactive">PREV</span>
+				}
+
+				<ul class="pages">
+				@for (int i = 1; i <= Math.Ceiling((decimal)totalItems / itemsPerPage); i++)
+				{
+					<li class="@((i == currentPage) ? "number active" : "number")">
+						<a href="?page=@i">@i</a>
+					</li>
+				}
+				</ul>
+
+				@if (currentPage < Math.Ceiling((decimal)totalItems / itemsPerPage)) 
+				{
+					<a class="change" href="?page=@(currentPage + 1)">NEXT</a>
+				}
+				else
+				{
+					<span class="change inactive">NEXT</span>
+				}
+			</div>
+		</section>
 	</div>
 </section>
 

@@ -1,0 +1,35 @@
+#topbar {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .socialmedia {
+            
+            
+
+            .socialmedia-item {
+                padding: 15px;
+
+                &:first-child {
+                    border-right: none;
+                }
+
+                &:last-child {
+                    border-left: none;
+                }
+
+                border-left: 1px solid #606966;
+                border-right: 1px solid #606966;
+            }
+
+            a[target="_blank"] {
+                color: var(--color-light);
+
+                &::after {
+                    content: none !important;
+                }
+            }
+        }
+    }
+}

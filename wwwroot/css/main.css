@@ -227,6 +227,29 @@ blockquote {
   margin-bottom: 20px;
 }
 
+#topbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#topbar .container .socialmedia .socialmedia-item {
+  padding: 15px;
+  border-left: 1px solid #606966;
+  border-right: 1px solid #606966;
+}
+#topbar .container .socialmedia .socialmedia-item:first-child {
+  border-right: none;
+}
+#topbar .container .socialmedia .socialmedia-item:last-child {
+  border-left: none;
+}
+#topbar .container .socialmedia a[target=_blank] {
+  color: var(--color-light);
+}
+#topbar .container .socialmedia a[target=_blank]::after {
+  content: none !important;
+}
+
 header .header-banner .header-content {
   display: flex;
   justify-content: space-between;
