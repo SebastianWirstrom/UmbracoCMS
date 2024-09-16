@@ -22,15 +22,21 @@
 
             a {
                 border: 1px solid #eaeaea;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
                 .item {
+                   
+
                     h4 {
-                        padding: 20px 0 5px 20px;
+                        padding: 20px 0 0 20px;
                     }
                 }
 
                 .body {
-
+                    img {
+                        width: 400px;
+                        height: auto;
+                    }
                 }
 
                 .footer {
