@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IEnumerable<string>>
+
+@if (Model != null && Model.Any())
+{
+    <div class="project-tags">
+        <div class="tags">
+            @foreach (var tag in Model)
+            {            
+                <a href="@Url.Action("ProjectsByTag", "Project", new { tag = tag })">
+                    <p>@tag</p>
+                </a>
+            } 
+        </div>  
+    </div>
+}
+else
+{
+    <p>error loading tags</p>
+}

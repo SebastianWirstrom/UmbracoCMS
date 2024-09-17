@@ -1,53 +1,95 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-	Layout = "mainLayout.cshtml";
-	ViewBag.Title = Model.Name;
+    Layout = "mainLayout.cshtml";
+    ViewBag.Title = Model.Name;
 }
 
 @{
-	var selection = Umbraco.Content(Guid.Parse("7a3a0c54-8c7e-4454-9157-ffe2b2e1911c"))
-    .ChildrenOfType("projectItemTemplate")
-    .Where(x => x.IsVisible());
+    var selection = Umbraco.Content(Guid.Parse("7a3a0c54-8c7e-4454-9157-ffe2b2e1911c"))
+        .ChildrenOfType("projectItemTemplate")
+        .Where(x => x.IsVisible());
 
-	var itemsPerPage = 4;
-	if (!int.TryParse(Context.Request.Query["page"], out int currentPage))
-		currentPage = 1;
-	var totalItems = selection?.Count() ?? 0;
-	var pagedItems = selection?.Skip((currentPage - 1) * itemsPerPage).Take(itemsPerPage);
+    var itemsPerPage = 4;
+    if (!int.TryParse(Context.Request.Query["page"], out int currentPage))
+        currentPage = 1;
+    var totalItems = selection?.Count() ?? 0;
+    var pagedItems = selection?.Skip((currentPage - 1) * itemsPerPage).Take(itemsPerPage);
 
-	var publicationDate = Model.Value<DateTime>("publicationDate").ToString("dd MMMM yyyy");
+    var publicationDate = Model.Value<DateTime>("publicationDate").ToString("dd MMMM yyyy");
+
+    
+    var allTags = selection
+        .SelectMany(x => x.Value<IEnumerable<string>>("projectTags") ?? Enumerable.Empty<string>())
+        .Distinct() 
+        .ToList();
 }
 
 @await Html.PartialAsync("partials/static/breadcrumb.cshtml")
 
-<section id="our-services">
-	<div class="container">
-		<div class="projects-list">
-			@if (pagedItems != null) {
-				@foreach (var item in pagedItems) {
-					var image = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
-					var preamble = item?.Value<string>("preamble") ?? "";
+<section id="projects">
+    <div class="container">
+        <div class="projects-list">
+            @if (pagedItems != null) {
+                @foreach (var item in pagedItems) {
+                    var image = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
+                    var preamble = item?.Value<string>("preamble") ?? "";
 
-					<a href="@item.Url()" class="project">
-						<img src="@image" alt="@item.Name()">
-						<div class="item">
-							<div class="title">
-								<h4>@item.Name()</h4>
-							</div>
-							<div class="date">
-								<p>@publicationDate</p>
-							</div>
-							<div class="body">
-								<p>@preamble</p>
-							</div>
-							<div class="footer">
-								<p id="readmore">Read more <i class="fa-regular fa-arrow-right"></i></p>
-							</div>
-						</div>
-					</a>
-				}
-			}
-		</div>
-	</div>
+                    <a href="@item.Url()" class="project">
+                        <div class="project-image">
+                            <img src="@image" alt="@item.Name()">
+                        </div>
+                        <div class="item">
+                            <div class="title">
+                                <h4>@item.Name()</h4>
+                            </div>
+                            <div class="date">
+                                <p>@publicationDate</p>
+                            </div>
+                            <div class="body">
+                                <p>@preamble</p>
+                            </div>
+                            <div class="footer">
+                                <p id="readmore">Read more <i class="fa-regular fa-arrow-right"></i></p>
+                            </div>
+                        </div>
+                    </a>
+                }
+            }
+
+            <section class="pagination">
+                <div class="container">
+
+                    @if (currentPage > 1) 
+                    {
+                        <a href="?page=@(currentPage - 1)" class="change">PREV</a>
+                    }
+                    else 
+                    {
+                        <span class="change inactive">PREV</span>
+                    }
+
+                    <ul class="pages">
+                    @for (int i = 1; i <= Math.Ceiling((decimal)totalItems / itemsPerPage); i++)
+                    {
+                        <li class="@((i == currentPage) ? "number active" : "number")">
+                            <a href="?page=@i">@i</a>
+                        </li>
+                    }
+                    </ul>
+
+                    @if (currentPage < Math.Ceiling((decimal)totalItems / itemsPerPage)) 
+                    {
+                        <a class="change" href="?page=@(currentPage + 1)">NEXT</a>
+                    }
+                    else
+                    {
+                        <span class="change inactive">NEXT</span>
+                    }
+                </div>
+            </section>
+            
+        </div> 
+        @await Html.PartialAsync("partials/blockgrid/components/projectTags.cshtml", allTags)
+    </div>
 </section>
