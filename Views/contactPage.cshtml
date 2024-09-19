@@ -1,0 +1,54 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+    Layout = "mainLayout.cshtml";
+    ViewBag.Title = Model.Value("pageTitle");
+
+    bool error_name = false;
+    bool error_email = false;
+    bool error_message = false;
+
+    var errorNameString = ViewData["error_name"]?.ToString();
+    var errorEmailString = ViewData["error_email"]?.ToString();
+    var errorMessageString = ViewData["error_message"]?.ToString();
+
+    bool.TryParse(errorNameString, out error_name);
+    bool.TryParse(errorEmailString, out error_email);
+    bool.TryParse(errorMessageString, out error_message);
+}
+
+@await Html.PartialAsync("partials/static/breadcrumb.cshtml")
+<div class="container">
+	<h1>@ViewBag.Title</h1>
+
+
+	<div class="container">
+		
+		
+		@using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post, new { novalidate = "novalidate" }))
+		{
+			<div class="form-input-group">
+				<label class="form-label" for="name">Name</label>
+				<input id="name" name="name" type="text" placeholder="Your name" class="form-input" required value="@ViewData["name"]">
+				<span class="form-input-error @((error_name) ? "form-invalid-input" : null)">You must enter your name</span>
+			</div>
+			<div class="form-input-group">
+				<label class="form-label" for="email">E-mail</label>
+				<input id="email" name="email" type="email" placeholder="Your E-mail" class="form-input" required value="@ViewData["email"]">
+				<span class="form-input-error @((error_email) ? "form-invalid-input" : null)">You must enter your E-mail address</span>
+			</div>
+			<div class="form-input-group">
+				<label class="form-label" for="message">Message</label>
+				<textarea id="message" name="message" placeholder="Your message" class="form-textarea">@ViewData["message"]</textarea>
+				<span class="form-input-error @((error_message) ? "form-invalid-input" : null)">You must enter a message</span>
+			</div>
+			<button class="form-button btn-submit" type="submit">SEND</button>
+		}
+		
+		@if (TempData["success"] != null)
+		{
+			<div class="form-success">@TempData["Success"]</div>
+		}
+	</div>
+</div>
