@@ -3,10 +3,12 @@
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 
 @{
-    var paragraphContent = Model?.Content.Value<string>("paragraphContent");
+    var paragraphContent = Model?.Content.Value<string>("paragraphContent") ?? "";
+    var isCursive = Model?.Content.Value<bool>("cursive") ?? false;
 }
 
 @if (!string.IsNullOrEmpty(paragraphContent))
 {
-    <p>@paragraphContent</p>
+    
+    <p class="@(isCursive ? "italic-text" : "")">@paragraphContent</p>  
 }

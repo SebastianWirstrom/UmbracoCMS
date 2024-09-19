@@ -1,33 +1,48 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
-@using Umbraco.Cms.Core.PropertyEditors.ValueConverters.ColorPickerValueConverter;
 
 @{
     var sectionTitle = Model?.Content.Value<string>("sectionTitle") ?? "";
     var sectionId = sectionTitle?.ToString().ToLower().Trim().Replace(" ", "-");
 
-    var spacingTopClass = (Model!.Content.Value<bool>("addSpaceToTop")) ? "spacing-top" : "";
-    var spacingToBottomClass = (Model!.Content.Value<bool>("addSpaceToBottom")) ? "spacing-bottom" : "";
+    var spacingTopClass = (Model.Content.Value<bool>("addSpaceToTop")) ? "spacing-top" : "";
+    var spacingToBottomClass = (Model.Content.Value<bool>("addSpaceToBottom")) ? "spacing-bottom" : "";
+  
+    var sectionBackgroundColor = Model?.Content.Value("sectionBackgroundColor");
+    string sectionBackgroundColorLabel = null;
+    string sectionBackgroundHex = null;
 
-    var sectionBackgroundColorLabel = Model?.Content?.Value<PickedColor>("sectionBackgroundColor")?.Label.ToLower() ?? null;
-    var backgroundColorClass = (!string.IsNullOrEmpty(sectionBackgroundColorLabel) && sectionBackgroundColorLabel != "none") ? $"bg-{backgroundColorLabel}" : "";
+    if (sectionBackgroundColor != null)
+    {
+        if (sectionBackgroundColor is Newtonsoft.Json.Linq.JObject colorData)
+        {
+            sectionBackgroundHex = colorData["value"]?.ToString();
+            sectionBackgroundColorLabel = colorData["label"]?.ToString();
+        }
+        else if (sectionBackgroundColor is string)
+        {
+            sectionBackgroundHex = sectionBackgroundColor.ToString();
+        }
+    }
 
+    var backgroundColorClass = (!string.IsNullOrEmpty(sectionBackgroundColorLabel) && sectionBackgroundColorLabel != "none") ? $"bg-{sectionBackgroundColorLabel.ToLower()}" : "";
     var sectionBackgroundImage = Model?.Content.Value<IPublishedContent>("sectionBackgroundImage")?.Url() ?? null;
 }
 
-<section id="@sectionId" class="@spacingTopClass spacingToBottomClass">
+<section id="@sectionId" class="@spacingTopClass @spacingToBottomClass @backgroundColorClass">
 
-    @if (!string.IsNullOrEmpty(backgroundColorClass))
+    @if (!string.IsNullOrEmpty(sectionBackgroundHex))
     {
-        <div class="background @bgColorClass"></div>
+        <div class="background" style="background-color:@sectionBackgroundHex;"></div>
     }
 
     @if(!string.IsNullOrEmpty(sectionBackgroundImage))
     {
         <img class="background-image" src="@sectionBackgroundImage" alt="@sectionTitle background image">
     }
-        
-    @await Html.GetBlockGridItemAreasHtmlAsync(Model)
-      
+
+    <div class="container">
+        @await Html.GetBlockGridItemAreasHtmlAsync(Model)
+    </div>  
 </section>

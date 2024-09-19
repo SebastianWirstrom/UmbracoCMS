@@ -18,7 +18,6 @@
 
     var publicationDate = Model.Value<DateTime>("publicationDate").ToString("dd MMMM yyyy");
 
-    
     var allTags = selection
         .SelectMany(x => x.Value<IEnumerable<string>>("projectTags") ?? Enumerable.Empty<string>())
         .Distinct() 
@@ -27,13 +26,6 @@
 
 @await Html.PartialAsync("partials/static/breadcrumb.cshtml")
 
-<section id="projects">
-    <div class="container">
-        <div class="projects-list">
-            @if (pagedItems != null) {
-                @foreach (var item in pagedItems) {
-                    var image = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
-                    var preamble = item?.Value<string>("preamble") ?? "";
 <section id="projects">
     <div class="container">
         <div class="projects-list">
@@ -62,7 +54,7 @@
                         </div>
                     </a>
                 }
-            }
+            } 
 
             <section class="pagination">
                 <div class="container">
@@ -100,4 +92,3 @@
         @await Html.PartialAsync("partials/blockgrid/components/projectTags.cshtml", allTags)
     </div>
 </section>
-

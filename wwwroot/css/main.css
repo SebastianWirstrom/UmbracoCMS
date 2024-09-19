@@ -180,6 +180,10 @@ p {
   padding-bottom: 1rem;
 }
 
+.italic-text {
+  font-style: italic;
+}
+
 h1, h2, h3, h4, h5, h6, nav {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
@@ -363,9 +367,14 @@ header .container .search {
   z-index: 10;
 }
 
-#about-us {
-  padding-top: 250px;
+#about {
+  padding: 100px 0 100px 0;
 }
+#about img {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
 #our-services .container .headline {
   display: flex;
   justify-content: center;
