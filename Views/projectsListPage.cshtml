@@ -34,6 +34,13 @@
                 @foreach (var item in pagedItems) {
                     var image = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
                     var preamble = item?.Value<string>("preamble") ?? "";
+<section id="projects">
+    <div class="container">
+        <div class="projects-list">
+            @if (pagedItems != null) {
+                @foreach (var item in pagedItems) {
+                    var image = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
+                    var preamble = item?.Value<string>("preamble") ?? "";
 
                     <a href="@item.Url()" class="project">
                         <div class="project-image">
@@ -93,3 +100,4 @@
         @await Html.PartialAsync("partials/blockgrid/components/projectTags.cshtml", allTags)
     </div>
 </section>
+
