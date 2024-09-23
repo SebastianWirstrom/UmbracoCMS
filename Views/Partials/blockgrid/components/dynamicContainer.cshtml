@@ -2,11 +2,11 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-    var centerFlex = (Model.Content.Value<bool>("centerFlex")) ? "center-flex" : "";
+    var centerContentClass = (Model.Content.Value<bool>("centerContentOnPage")) ? "center" : "";
 }
 
 
-<div class="dynamic-container @centerFlex">
+<div class="dynamic-container @centerContentClass">
     @await Html.GetBlockGridItemAreasHtmlAsync(Model)
 </div>
 

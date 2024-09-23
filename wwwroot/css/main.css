@@ -459,8 +459,6 @@ header .container .search {
 #clients {
   position: relative;
   min-height: auto;
-  padding-bottom: 50px;
-  margin-bottom: 50px;
 }
 #clients .container {
   margin-top: 100px;
@@ -497,48 +495,39 @@ header .container .search {
   z-index: 11;
 }
 
-.success-story {
-  padding-top: 100px;
+#success-background-color {
   position: relative;
-  text-align: center;
-  z-index: -2;
+  height: 100vh;
+  z-index: 1;
 }
-.success-story .background {
-  z-index: -1;
-  height: 90vh;
-}
-.success-story .background .container .success-title {
-  z-index: 2;
-  padding-top: 100px;
-}
-.success-story .background .container .success-content {
-  z-index: 2;
-}
-.success-story .background .container .success-content .success-text-boxes {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  -moz-column-gap: 25px;
-       column-gap: 25px;
-  padding: 0 45px 0 45px;
-}
-.success-story .background .container .success-content .success-text-boxes .success-text h3 {
-  font-size: 4rem;
-}
-.success-story .background .container .success-content .success-text-boxes .success-text h6 {
-  padding: 25px;
-  color: var(--color-light);
-}
-.success-story .background .container .success-content img {
+#success-background-color .background-image {
   position: absolute;
-  top: 120px;
-  left: 0;
-  width: 110%;
-  height: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
-.success-story .success-image {
-  margin-top: -400px;
+#success-background-color h6 {
+  padding-top: 140px;
+  text-align: center;
+}
+#success-background-color h2, #success-background-color h1, #success-background-color p {
+  text-align: center;
+}
+#success-background-color p {
+  padding: 0 30px;
+}
+
+#success-image-section {
+  position: relative;
+  z-index: 2;
+}
+#success-image-section .container .img-div {
+  position: absolute;
+  top: -450px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
 }
 
 .recent-projects .projects {
