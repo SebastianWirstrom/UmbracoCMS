@@ -8,33 +8,19 @@
 
     var spacingTopClass = (Model.Content.Value<bool>("addSpaceToTop")) ? "spacing-top" : "";
     var spacingToBottomClass = (Model.Content.Value<bool>("addSpaceToBottom")) ? "spacing-bottom" : "";
-  
-    var sectionBackgroundColor = Model?.Content.Value("sectionBackgroundColor");
-    string sectionBackgroundColorLabel = null;
-    string sectionBackgroundHex = null;
+    var centerContentClass = (Model.Content.Value<bool>("centerContentOnPage")) ? "center" : "";
 
-    if (sectionBackgroundColor != null)
-    {
-        if (sectionBackgroundColor is Newtonsoft.Json.Linq.JObject colorData)
-        {
-            sectionBackgroundHex = colorData["value"]?.ToString();
-            sectionBackgroundColorLabel = colorData["label"]?.ToString();
-        }
-        else if (sectionBackgroundColor is string)
-        {
-            sectionBackgroundHex = sectionBackgroundColor.ToString();
-        }
-    }
-
-    var backgroundColorClass = (!string.IsNullOrEmpty(sectionBackgroundColorLabel) && sectionBackgroundColorLabel != "none") ? $"bg-{sectionBackgroundColorLabel.ToLower()}" : "";
+    var sectionBackgroundColorLabel = Model?.Content?.Value<Umbraco.Cms.Core.PropertyEditors.ValueConverters.ColorPickerValueConverter.PickedColor>("sectionBackgroundColor")?.Label.ToLower() ?? null;
+    var backgroundColorClass = (!string.IsNullOrEmpty(sectionBackgroundColorLabel) && sectionBackgroundColorLabel != "none") ? $"bg-{sectionBackgroundColorLabel}" : "";
+    
     var sectionBackgroundImage = Model?.Content.Value<IPublishedContent>("sectionBackgroundImage")?.Url() ?? null;
 }
 
 <section id="@sectionId" class="@spacingTopClass @spacingToBottomClass @backgroundColorClass">
 
-    @if (!string.IsNullOrEmpty(sectionBackgroundHex))
+    @if (!string.IsNullOrEmpty(backgroundColorClass))
     {
-        <div class="background" style="background-color:@sectionBackgroundHex;"></div>
+        <div class="background @backgroundColorClass"></div>
     }
 
     @if(!string.IsNullOrEmpty(sectionBackgroundImage))
@@ -42,7 +28,7 @@
         <img class="background-image" src="@sectionBackgroundImage" alt="@sectionTitle background image">
     }
 
-    <div class="container">
-        @await Html.GetBlockGridItemAreasHtmlAsync(Model)
-    </div>  
+    
+    @await Html.GetBlockGridItemAreasHtmlAsync(Model)
+    
 </section>

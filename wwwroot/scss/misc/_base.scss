@@ -27,6 +27,12 @@ body {
     color: #535656;
 }
 
+.center-flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 /*UMBRACO STANDARD CSS*/
 
 .umb-block-grid__layout-container {
