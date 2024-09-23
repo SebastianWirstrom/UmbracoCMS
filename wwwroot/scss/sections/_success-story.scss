@@ -1,6 +1,7 @@
 #success-background-color {
     position: relative;
     z-index: 1;  
+    height: 90vh;
 
     .background-image {
         position: absolute;
@@ -36,10 +37,10 @@
     .container {
         .img-div {
             position: absolute;  
-            top: -450px; 
+            top: -370px; 
             left: 50%;
             transform: translateX(-50%);
-            z-index: 
+            z-index: 3;
         }
     }
 }

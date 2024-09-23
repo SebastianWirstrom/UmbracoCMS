@@ -497,8 +497,8 @@ header .container .search {
 
 #success-background-color {
   position: relative;
-  height: 100vh;
   z-index: 1;
+  height: 90vh;
 }
 #success-background-color .background-image {
   position: absolute;
@@ -509,13 +509,15 @@ header .container .search {
 }
 #success-background-color h6 {
   padding-top: 140px;
-  text-align: center;
 }
-#success-background-color h2, #success-background-color h1, #success-background-color p {
-  text-align: center;
+#success-background-color h1 {
+  color: var(--color-secondary);
 }
 #success-background-color p {
   padding: 0 30px;
+}
+#success-background-color h2, #success-background-color h1, #success-background-color p, #success-background-color h6 {
+  text-align: center;
 }
 
 #success-image-section {
@@ -524,7 +526,7 @@ header .container .search {
 }
 #success-image-section .container .img-div {
   position: absolute;
-  top: -450px;
+  top: -370px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
