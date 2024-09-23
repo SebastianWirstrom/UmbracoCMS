@@ -1,29 +1,6 @@
-.recent-projects {
-    .projects-title {
+#recent-projects {
+    background-color: red;
+    margin-top: 200px;
+    
 
-    }
-
-    .projects {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-
-        .project-box {
-            position: relative;
-
-            .project-box-title {
-                position: absolute;               
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                opacity: 30%;
-                background-color: rgba(0, 0, 0, 0.2); /* Svart med 20% opacitet */
-
-                h4, p {
-                    opacity: 1;
-                }
-
-                
-            }
-        }
-    }
 }

@@ -532,23 +532,9 @@ header .container .search {
   z-index: 3;
 }
 
-.recent-projects .projects {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-.recent-projects .projects .project-box {
-  position: relative;
-}
-.recent-projects .projects .project-box .project-box-title {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  opacity: 30%;
-  background-color: rgba(0, 0, 0, 0.2); /* Svart med 20% opacitet */
-}
-.recent-projects .projects .project-box .project-box-title h4, .recent-projects .projects .project-box .project-box-title p {
-  opacity: 1;
+#recent-projects {
+  background-color: red;
+  margin-top: 200px;
 }
 
 #projects .container {
