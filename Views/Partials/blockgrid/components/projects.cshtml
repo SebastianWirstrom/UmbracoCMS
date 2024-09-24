@@ -3,16 +3,30 @@
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 
 @{
+	var sectionTitle = Model?.Content.Value<string>("sectionTitle") ?? "";
+	var headline = Model?.Content.Value<string>("headline") ?? "";
+
 	var selection = Umbraco.Content(Guid.Parse("7a3a0c54-8c7e-4454-9157-ffe2b2e1911c"))
     .ChildrenOfType("projectItemTemplate")
-    .Where(x => x.IsVisible());
+    .Where(x => x.IsVisible())
+	.Take(4);
 }
-<ul>
+
+<div id="recent-projects">
 	@foreach (var item in selection)
 	{
-		<li>
-			<a href="@item.Url()">@item.Name()</a>
-		</li>
+		var image = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
+		
+			<div class="recent-projects-item">
+				<a href="@item.Url()">
+					<img src="@image" />
+					<div class="title-card">
+						@item.Name()
+						<i class="fa-solid fa-chevron-right"></i>
+					</div>
+				</a>
+			</div>
 	}
-</ul>
+</div>
+
 

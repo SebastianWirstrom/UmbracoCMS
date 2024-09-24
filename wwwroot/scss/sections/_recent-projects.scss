@@ -1,6 +1,51 @@
-#recent-projects {
-    background-color: red;
-    margin-top: 200px;
-    
+#recent-projects-title {
+    padding-top: 300px;
+}
 
+#recent-projects {
+    display: flex;
+    flex-wrap: wrap;
+
+    .recent-projects-item {
+        flex: 1 1 calc(25% - 20px);
+        margin-bottom: 20px;
+        position: relative;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .title-card {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--color-primary);
+            color: var(--color-light);
+            padding: 20px 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            opacity: 0.7; // Gör title-card lätt genomskinlig
+            transition: opacity 1s ease, padding 1s ease; // Lägg till smidig övergång för opacity och padding
+
+            i {
+                opacity: 0; // Döljer ikonen med opacity istället för display
+                transition: opacity 1s ease; // Lägg till övergång för opacity på ikonen
+            }
+        }
+
+        // Hovringsstil
+        &:hover .title-card {
+            opacity: 1; // Full opacitet vid hovring
+            padding: 40px 40px;
+            color: var(--color-secondary);
+
+            i {
+                opacity: 1; // Visa ikonen genom att gradvis öka opaciteten
+            }
+        }
+    }
 }

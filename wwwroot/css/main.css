@@ -532,9 +532,49 @@ header .container .search {
   z-index: 3;
 }
 
+#recent-projects-title {
+  padding-top: 300px;
+}
+
 #recent-projects {
-  background-color: red;
-  margin-top: 200px;
+  display: flex;
+  flex-wrap: wrap;
+}
+#recent-projects .recent-projects-item {
+  flex: 1 1 calc(25% - 20px);
+  margin-bottom: 20px;
+  position: relative;
+}
+#recent-projects .recent-projects-item img {
+  width: 100%;
+  height: auto;
+}
+#recent-projects .recent-projects-item .title-card {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  padding: 20px 20px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0.7;
+  transition: opacity 1s ease, padding 1s ease;
+}
+#recent-projects .recent-projects-item .title-card i {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+#recent-projects .recent-projects-item:hover .title-card {
+  opacity: 1;
+  padding: 40px 40px;
+  color: var(--color-secondary);
+}
+#recent-projects .recent-projects-item:hover .title-card i {
+  opacity: 1;
 }
 
 #projects .container {
