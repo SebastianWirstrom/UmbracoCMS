@@ -1,0 +1,22 @@
+#partners {
+    .container {
+        .image-slider {
+            .slides {
+                display: flex;
+                justify-content: space-between; 
+                align-items: center; 
+                flex-wrap: wrap; 
+                padding-top: 70px;
+                padding-bottom: 70px;
+
+                .slide-item {
+                    padding-right: 50px;
+                    img {
+                        max-width: 100%; 
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+}

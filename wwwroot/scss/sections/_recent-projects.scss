@@ -5,10 +5,10 @@
 #recent-projects {
     display: flex;
     flex-wrap: wrap;
+    
 
     .recent-projects-item {
         flex: 1 1 calc(25% - 20px);
-        margin-bottom: 20px;
         position: relative;
 
         img {
@@ -28,24 +28,26 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            opacity: 0.7; // Gör title-card lätt genomskinlig
-            transition: opacity 1s ease, padding 1s ease; // Lägg till smidig övergång för opacity och padding
+            opacity: 0.7; 
+            transition: opacity 1s ease, padding 1s ease; 
 
             i {
-                opacity: 0; // Döljer ikonen med opacity istället för display
-                transition: opacity 1s ease; // Lägg till övergång för opacity på ikonen
+                opacity: 0; 
+                transition: opacity 1s ease; 
+            }
+
+            &:hover {
+                opacity: 1; 
+                padding: 40px 40px;
+                color: var(--color-secondary);
+    
+                i {
+                    opacity: 1; 
+                }
             }
         }
 
-        // Hovringsstil
-        &:hover .title-card {
-            opacity: 1; // Full opacitet vid hovring
-            padding: 40px 40px;
-            color: var(--color-secondary);
-
-            i {
-                opacity: 1; // Visa ikonen genom att gradvis öka opaciteten
-            }
-        }
+        
+        
     }
 }
