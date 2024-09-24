@@ -1,0 +1,25 @@
+.service-details {
+    padding-top: 50px;
+
+    
+    
+    .container {
+        max-width: 768px;
+
+        span {
+            color: var(--color-default);
+            
+        }
+        img {
+            margin-bottom: 10px;
+        }
+        ul {
+            padding-left: 15px;
+            line-height: 2;
+        }
+        ul li::marker {
+            color: var(--color-secondary);
+        }
+    }
+    
+}

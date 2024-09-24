@@ -415,6 +415,8 @@ header .container .search {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 #our-services .container .pagination .container .change {
   color: var(--color-dark);
@@ -592,14 +594,19 @@ header .container .search {
   color: var(--color-dark);
   border-bottom: 2px solid var(--color-gray);
   padding-bottom: 20px;
-  width: 90%;
+}
+#projects .container .projects-list .project:hover .project-image img {
+  transform: scale(1.4) rotate(10deg);
+  filter: brightness(1.1);
 }
 #projects .container .projects-list .project .project-image {
-  max-height: 250px;
+  display: inline-block;
   overflow: hidden;
+  max-height: 250px;
 }
 #projects .container .projects-list .project .project-image img {
-  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  transform-origin: center center;
 }
 #projects .container .projects-list .project .item {
   display: flex;
@@ -607,16 +614,27 @@ header .container .search {
   width: 35%;
   margin-left: 10px;
 }
-#projects .container .projects-list .project .item .footer {
-  margin-top: auto;
-  display: flex;
-  justify-content: flex-start;
+#projects .container .projects-list .project .item .title h4 {
+  font-size: 1rem;
 }
-#projects .container .projects-list .project .item .footer #readmore {
-  padding: 0;
+#projects .container .projects-list .project .item .date {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
+  font-size: 0.8rem;
+}
+#projects .container .projects-list .project .item .date i {
+  margin: 0 5px 18px 5px;
+}
+#projects .container .projects-list .project .item .body {
+  font-size: 0.8rem;
+}
+#projects .container .projects-list .project .item .footer {
+  display: flex;
+  justify-content: left;
+  align-items: baseline;
+  padding: 0;
+  margin: 0;
 }
 #projects .container .projects-list .project .item .footer #readmore i {
   color: var(--color-secondary);
@@ -736,21 +754,41 @@ header .container .search {
   height: auto;
 }
 
-.footer {
+footer {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px 20px 20px 20px;
 }
-.footer .container {
+footer .container {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
 }
-.footer .copyright {
+footer .copyright {
   display: flex;
   flex-direction: row;
   align-items: center;
   text-align: left;
   margin-right: 5px;
+}
+
+.service-details {
+  padding-top: 50px;
+}
+.service-details .container {
+  max-width: 768px;
+}
+.service-details .container span {
+  color: var(--color-default);
+}
+.service-details .container img {
+  margin-bottom: 10px;
+}
+.service-details .container ul {
+  padding-left: 15px;
+  line-height: 2;
+}
+.service-details .container ul li::marker {
+  color: var(--color-secondary);
 }
