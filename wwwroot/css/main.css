@@ -567,12 +567,12 @@ header .container .search {
   opacity: 0;
   transition: opacity 1s ease;
 }
-#recent-projects .recent-projects-item .title-card:hover {
+#recent-projects .recent-projects-item:hover .title-card {
   opacity: 1;
   padding: 40px 40px;
   color: var(--color-secondary);
 }
-#recent-projects .recent-projects-item .title-card:hover i {
+#recent-projects .recent-projects-item:hover .title-card i {
   opacity: 1;
 }
 

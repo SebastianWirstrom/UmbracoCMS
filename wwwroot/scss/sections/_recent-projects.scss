@@ -35,15 +35,15 @@
                 opacity: 0; 
                 transition: opacity 1s ease; 
             }
+        }
 
-            &:hover {
+        &:hover .title-card {
+            opacity: 1; 
+            padding: 40px 40px;
+            color: var(--color-secondary);
+
+            i {
                 opacity: 1; 
-                padding: 40px 40px;
-                color: var(--color-secondary);
-    
-                i {
-                    opacity: 1; 
-                }
             }
         }
 
