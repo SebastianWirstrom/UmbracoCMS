@@ -735,3 +735,22 @@ header .container .search {
   max-width: 100%;
   height: auto;
 }
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px 20px 20px;
+}
+.footer .container {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.footer .copyright {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  margin-right: 5px;
+}

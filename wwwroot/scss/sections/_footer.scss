@@ -1,0 +1,20 @@
+.footer {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    padding: 40px 20px 20px 20px; 
+
+    .container {
+        display: flex;
+        align-items: center; 
+        flex-wrap: nowrap; 
+    }
+
+    .copyright {
+        display: flex;
+        flex-direction: row; 
+        align-items: center;
+        text-align: left; 
+        margin-right: 5px; 
+    }
+}
