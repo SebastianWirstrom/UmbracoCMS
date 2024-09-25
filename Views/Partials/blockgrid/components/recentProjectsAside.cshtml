@@ -1,0 +1,31 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+    var selection = Umbraco.Content(Guid.Parse("7a3a0c54-8c7e-4454-9157-ffe2b2e1911c"))
+        .ChildrenOfType("projectItemTemplate")
+        .Where(x => x.IsVisible())
+        .Take(4);
+
+    var currentPublicationDate = Model.Value<DateTime>("publicationDate").ToString("dd MMMM yyyy");
+}
+
+<div id="recent-projects-aside">
+    @foreach (var item in selection)
+    {
+        var image = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
+        
+        <div class="recent-projects-item">
+            <a href="@item.Url()">
+                <img src="@image" />
+                <div class="title-card">
+                    @item.Name()
+                    <div class="publication-date">
+                        <i class="fa-regular fa-calendar-days"></i>
+                        <p>@currentPublicationDate</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>

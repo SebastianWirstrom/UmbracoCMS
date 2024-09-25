@@ -1,12 +1,32 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-	Layout = "mainLayout.cshtml";
-	ViewBag.Title = Model?.Name;
+    Layout = "mainLayout.cshtml";
+    ViewBag.Title = Model?.Name;
+    
+    
+    var currentTags = Model.Value<IEnumerable<string>>("projectTags") ?? Enumerable.Empty<string>();
+    var currentPublicationDate = Model.Value<DateTime>("publicationDate").ToString("dd MMMM yyyy");
+
 }
-@await Html.PartialAsync("partials/static/breadcrumb.cshtml")
+
+
+
 <section class="project-details">
-	<div class="container">
-		@Model.Value("pageContent")
-	</div>
+    <div class="container">
+        <div class="date">
+            <i class="fa-regular fa-calendar-days"></i>
+            <p>@currentPublicationDate</p>
+        </div>
+        @Model.Value("pageContent")
+        @await Html.PartialAsync("partials/blockgrid/components/projectTags.cshtml", currentTags) 
+        
+    </div>
+    <aside class="projects-aside">
+        @await Html.PartialAsync("partials/blockgrid/components/recentProjectsAside.cshtml")
+    </aside>
+    
+    
+
+    
 </section>
