@@ -795,27 +795,25 @@ footer .copyright {
 
 .project-details {
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .project-details .container {
-  max-width: 700px;
+  max-width: 900px;
   grid-column: 1/2;
 }
-.project-details .container span {
-  color: var(--color-default);
+.project-details .container .date {
+  display: flex;
+  padding-top: 70px;
+}
+.project-details .container .date i {
+  margin-top: 3px;
+  margin-right: 5px;
 }
 .project-details .container img {
   margin-bottom: 10px;
-}
-.project-details .container ul {
-  padding-left: 15px;
-  line-height: 2;
-}
-.project-details .container ul li::marker {
-  color: var(--color-primary);
 }
 .project-details .container .project-tags {
   display: flex;
@@ -843,28 +841,48 @@ footer .copyright {
 }
 .project-details .projects-aside {
   grid-column: 2/3;
-  width: 100%;
-  max-width: 300px;
-  position: relative;
 }
 .project-details .projects-aside #recent-projects-aside {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  border-left: 1px solid #eaeaea;
+  padding-left: 20px;
+  margin-top: 60px;
 }
 .project-details .projects-aside #recent-projects-aside .recent-projects-item {
-  max-width: 300px;
+  border-bottom: 1px solid #eaeaea;
+  padding: 10px 0 10px 0;
+}
+.project-details .projects-aside #recent-projects-aside .recent-projects-item:last-child {
+  border-bottom: none;
 }
 .project-details .projects-aside #recent-projects-aside .recent-projects-item > a {
   display: flex;
   align-items: center;
 }
 .project-details .projects-aside #recent-projects-aside .recent-projects-item > a > img {
-  width: 250px;
+  min-width: 150px;
   height: 70px;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
-  margin-right: 10px;
+}
+.project-details .projects-aside #recent-projects-aside .recent-projects-item > a .title-card {
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+.project-details .projects-aside #recent-projects-aside .recent-projects-item > a .title-card .publication-date {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: 0.8rem;
+}
+.project-details .projects-aside #recent-projects-aside .recent-projects-item > a .title-card .publication-date i {
+  margin: 0 5px 18px 0px;
+}
+.project-details .projects-aside #recent-projects-aside .recent-projects-item > a .title-card .publication-date > p {
+  margin-left: 5px;
+  color: #c9c9c9;
 }

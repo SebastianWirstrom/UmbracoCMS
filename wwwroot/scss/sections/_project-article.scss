@@ -1,29 +1,27 @@
 .project-details {
-    display: grid; // Använd CSS Grid för att skapa layouten
-    grid-template-columns: 1fr 300px; // Två kolumner: 1fr för innehållet och 300px för aside
-    gap: 20px; // Gap mellan innehåll och aside
-    max-width: 1000px; // Maximal bredd för hela .project-details sektionen
-    margin: 0 auto; // Centrerar innehållet
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
 
     .container {
-        max-width: 700px; // Justera containerns bredd för att ge mer utrymme för aside
-        grid-column: 1 / 2; // Placera allt innehåll i första kolumnen
+        max-width: 900px; 
+        grid-column: 1 / 2; 
 
-        span {
-            color: var(--color-default);
+        .date {
+            display: flex;
+            padding-top: 70px;
+
+            i {
+                margin-top: 3px;
+                margin-right: 5px;
+            }
+
         }
 
         img {
             margin-bottom: 10px;
-        }
-
-        ul {
-            padding-left: 15px;
-            line-height: 2;
-
-            li::marker {
-                color: var(--color-primary);
-            }
         }
 
         .project-tags {
@@ -55,31 +53,60 @@
         }
     }
 
-    // Aside-sektionen
+   
     .projects-aside {
-        grid-column: 2 / 3; // Placera aside i den andra kolumnen
-        width: 100%; // Se till att aside tar upp hela kolumnens bredd
-        max-width: 300px; // Begränsa bredden på aside till 300px
-        position: relative; // Innehåller aside inom containern
+        grid-column: 2 / 3; 
             
         #recent-projects-aside {
             display: flex;
             flex-direction: column;
-            gap: 15px; // Mellanrum mellan projektartiklarna
+            border-left: 1px solid #eaeaea;
+            padding-left: 20px;
+            margin-top: 60px;
+
+            
+            
 
             .recent-projects-item {
-                max-width: 300px; // Sätter en maxbredd för varje projektartikel
+                border-bottom: 1px solid #eaeaea;
+                padding: 10px 0 10px 0;
+
+                &:last-child {
+                    border-bottom: none;
+                }
 
                 & > a {
                     display: flex;
                     align-items: center;
 
                     & > img {
-                        width: 250px;
+                        min-width: 150px;
                         height: 70px;
                         object-fit: cover; 
                         object-position: center;
-                        margin-right: 10px; // Ger lite utrymme mellan bild och text
+                        
+                    }
+
+                    .title-card {
+                        color: var(--color-primary);
+                        font-size: 0.8rem;
+                        margin-left: 10px;
+                        
+                        .publication-date {
+                            display: flex;
+                            justify-content: left;
+                            align-items: center;
+                            font-size: 0.8rem;
+
+
+                            i {
+                                margin: 0 5px 18px 0px;
+                            }
+                            & > p {
+                                margin-left: 5px;
+                                color: #c9c9c9;
+                            }
+                        }
                     }
                 }
             }

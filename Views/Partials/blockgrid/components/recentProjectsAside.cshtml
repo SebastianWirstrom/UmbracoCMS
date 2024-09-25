@@ -11,10 +11,10 @@
 }
 
 <div id="recent-projects-aside">
+    <h5>Recent Projects</h5>
     @foreach (var item in selection)
     {
         var image = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
-        
         <div class="recent-projects-item">
             <a href="@item.Url()">
                 <img src="@image" />
