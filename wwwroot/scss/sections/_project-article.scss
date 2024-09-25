@@ -56,16 +56,14 @@
    
     .projects-aside {
         grid-column: 2 / 3; 
-            
+        border-left: 1px solid #eaeaea;
+        margin-top: 60px;
+        margin-bottom: 70px;
+
         #recent-projects-aside {
             display: flex;
-            flex-direction: column;
-            border-left: 1px solid #eaeaea;
+            flex-direction: column;          
             padding-left: 20px;
-            margin-top: 60px;
-
-            
-            
 
             .recent-projects-item {
                 border-bottom: 1px solid #eaeaea;
@@ -108,6 +106,32 @@
                             }
                         }
                     }
+                }
+            }
+        }
+        .project-tags {
+            padding-left: 20px;
+            margin-top: 40px;
+
+            h4 {
+                font-size: 1rem;
+                margin-right: 15px;
+            }
+            
+            .tags {
+              display: block;
+              width: 100%;
+
+                
+      
+                a {
+                    color: var(--color-dark);
+                    border: 1px solid #cecece;
+                    border-radius: 25px;
+                    padding: 15px 10px 0 10px;
+                    line-height: 1;
+                    margin: 10px 5px 10px 5px;
+                    font-size: 0.8rem;
                 }
             }
         }

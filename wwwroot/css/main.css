@@ -841,13 +841,14 @@ footer .copyright {
 }
 .project-details .projects-aside {
   grid-column: 2/3;
+  border-left: 1px solid #eaeaea;
+  margin-top: 60px;
+  margin-bottom: 70px;
 }
 .project-details .projects-aside #recent-projects-aside {
   display: flex;
   flex-direction: column;
-  border-left: 1px solid #eaeaea;
   padding-left: 20px;
-  margin-top: 60px;
 }
 .project-details .projects-aside #recent-projects-aside .recent-projects-item {
   border-bottom: 1px solid #eaeaea;
@@ -885,4 +886,25 @@ footer .copyright {
 .project-details .projects-aside #recent-projects-aside .recent-projects-item > a .title-card .publication-date > p {
   margin-left: 5px;
   color: #c9c9c9;
+}
+.project-details .projects-aside .project-tags {
+  padding-left: 20px;
+  margin-top: 40px;
+}
+.project-details .projects-aside .project-tags h4 {
+  font-size: 1rem;
+  margin-right: 15px;
+}
+.project-details .projects-aside .project-tags .tags {
+  display: block;
+  width: 100%;
+}
+.project-details .projects-aside .project-tags .tags a {
+  color: var(--color-dark);
+  border: 1px solid #cecece;
+  border-radius: 25px;
+  padding: 15px 10px 0 10px;
+  line-height: 1;
+  margin: 10px 5px 10px 5px;
+  font-size: 0.8rem;
 }

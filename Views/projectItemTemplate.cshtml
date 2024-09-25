@@ -8,6 +8,14 @@
     var currentTags = Model.Value<IEnumerable<string>>("projectTags") ?? Enumerable.Empty<string>();
     var currentPublicationDate = Model.Value<DateTime>("publicationDate").ToString("dd MMMM yyyy");
 
+    var selection = Umbraco.Content(Guid.Parse("7a3a0c54-8c7e-4454-9157-ffe2b2e1911c"))
+        .ChildrenOfType("projectItemTemplate")
+        .Where(x => x.IsVisible());
+    var allTags = selection
+        .SelectMany(x => x.Value<IEnumerable<string>>("projectTags") ?? Enumerable.Empty<string>())
+        .Distinct() 
+        .ToList();
+
 }
 
 
@@ -24,6 +32,7 @@
     </div>
     <aside class="projects-aside">
         @await Html.PartialAsync("partials/blockgrid/components/recentProjectsAside.cshtml")
+        @await Html.PartialAsync("partials/blockgrid/components/projectTags.cshtml", allTags)
     </aside>
     
     
