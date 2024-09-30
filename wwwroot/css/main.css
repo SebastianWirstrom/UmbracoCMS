@@ -908,3 +908,42 @@ footer .copyright {
   margin: 10px 5px 10px 5px;
   font-size: 0.8rem;
 }
+
+#contact-us {
+  position: relative;
+}
+#contact-us .background-image {
+  position: absolute;
+  bottom: 0;
+  left: 370px;
+}
+#contact-us .contact-us-block {
+  padding: 70px 0 0 0;
+}
+#contact-us .contact-us-block .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 200px;
+       column-gap: 200px;
+}
+#contact-us .contact-us-block .container .contact-us-info h2 {
+  margin-bottom: 40px;
+}
+#contact-us .contact-us-block .container .contact-us-info .contact-items .contact-item {
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+}
+#contact-us .contact-us-block .container .contact-us-info .contact-items .contact-item .contact-icon {
+  margin-right: 15px;
+  width: 10px;
+}
+#contact-us .contact-us-block .container .contact-us-info .contact-items .contact-item .contact-item-text .contact-us-info-title {
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+#contact-us .contact-us-block .container .contact-us-info .contact-items .contact-item .contact-item-text .contact-us-info-text {
+  margin-bottom: 20px;
+}
