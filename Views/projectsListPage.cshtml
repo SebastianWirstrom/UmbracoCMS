@@ -1,5 +1,8 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+﻿@using Umbraco.Cms.Web.Common.PublishedModels
+@using Umbraco.Cms.Core.Models.Blocks
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ProjectsListPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
 @{
     Layout = "mainLayout.cshtml";
     ViewBag.Title = Model.Name;
@@ -91,5 +94,11 @@
             
         </div> 
         @await Html.PartialAsync("partials/blockgrid/components/projectTags.cshtml", allTags)
+        
     </div>
 </section>
+
+@if (Model.Value<BlockGridModel>("projectListPageLayout") != null)
+{
+    @await Html.GetBlockGridHtmlAsync(Model.Value<BlockGridModel>("projectListPageLayout"))
+}

@@ -1,5 +1,7 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+﻿@using Umbraco.Cms.Web.Common.PublishedModels
+@using Umbraco.Cms.Core.Models.Blocks
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ServiceListPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
 	Layout = "mainLayout.cshtml";
 	ViewBag.Title = Model.Name;
@@ -81,4 +83,7 @@
 		</section>
 	</div>
 </section>
-
+@if (Model.Value<BlockGridModel>("servicePageLayout") != null)
+{
+    @await Html.GetBlockGridHtmlAsync(Model.Value<BlockGridModel>("servicePageLayout"))
+}
