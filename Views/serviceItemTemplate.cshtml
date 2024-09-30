@@ -5,7 +5,9 @@
 	ViewBag.Title = Model?.Name;
 }
 @await Html.PartialAsync("partials/static/breadcrumb.cshtml")
+
 <section class="service-details">
+	@await Html.PartialAsync("partials/blockgrid/components/serviceArticleAside.cshtml")
 	<div class="container">
 		@Model.Value("pageContent")
 	</div>

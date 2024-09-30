@@ -1,10 +1,15 @@
 .service-details {
     padding-top: 50px;
-
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    max-width: 1200px; 
+    margin: 0 auto; 
     
     
     .container {
-        max-width: 768px;
+        max-width: 900px; 
+        grid-column: 2 / 3; 
+        
 
         span {
             color: var(--color-default);
@@ -19,6 +24,30 @@
         }
         ul li::marker {
             color: var(--color-secondary);
+        }
+    }
+
+    #service-article-aside {
+        grid-column: 1 / 2; 
+        margin-top: 60px;
+        margin-bottom: 70px;
+        
+        width: 80%;
+        border-right: 1px solid #eaeaea;
+        
+        
+        & > a {
+            
+            & > img {
+                width: 300px;
+            }
+            
+            p {
+                padding-top: 20px;
+                font-size: 0.8rem;
+                color: var(--color-default);
+                margin-right: 50px;
+            }
         }
     }
     

@@ -775,9 +775,14 @@ footer .copyright {
 
 .service-details {
   padding-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .service-details .container {
-  max-width: 768px;
+  max-width: 900px;
+  grid-column: 2/3;
 }
 .service-details .container span {
   color: var(--color-default);
@@ -791,6 +796,22 @@ footer .copyright {
 }
 .service-details .container ul li::marker {
   color: var(--color-secondary);
+}
+.service-details #service-article-aside {
+  grid-column: 1/2;
+  margin-top: 60px;
+  margin-bottom: 70px;
+  width: 80%;
+  border-right: 1px solid #eaeaea;
+}
+.service-details #service-article-aside > a > img {
+  width: 300px;
+}
+.service-details #service-article-aside > a p {
+  padding-top: 20px;
+  font-size: 0.8rem;
+  color: var(--color-default);
+  margin-right: 50px;
 }
 
 .project-details {
