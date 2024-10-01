@@ -1,0 +1,14 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+<div class="mini-form-container">
+	<div class="mini-form-title">
+		<h4>How can we help you?</h4>
+		<p>Online support 24/7, we are here to help you</p>
+	</div>
+	<form class="mini-form">
+		<div class="form-input-group">
+			<input id="email" name="email" type="email" placeholder="E-mail address" class="form-input" required value="@ViewData["name"]">
+		</div>
+	</form>	
+</div>

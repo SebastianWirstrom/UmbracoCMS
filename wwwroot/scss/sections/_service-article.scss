@@ -1,7 +1,7 @@
-.service-details {
+#service-details {
     padding-top: 50px;
     display: grid; 
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr 1.5fr; 
     max-width: 1200px; 
     margin: 0 auto; 
     
@@ -9,6 +9,7 @@
     .container {
         max-width: 900px; 
         grid-column: 2 / 3; 
+        margin-left: -80px;
         
 
         span {
@@ -31,8 +32,7 @@
         grid-column: 1 / 2; 
         margin-top: 60px;
         margin-bottom: 70px;
-        
-        width: 80%;
+        width: 75%;
         border-right: 1px solid #eaeaea;
         
         
@@ -48,6 +48,44 @@
                 color: var(--color-default);
                 margin-right: 50px;
             }
+        }
+
+        .mini-form-container {
+            background-color: var(--color-primary);
+            margin-right: 55px;
+            margin-top: 40px;
+            border-radius: 5px;
+        
+
+            .mini-form-title {
+                padding: 20px;
+                text-align: left;
+
+                & > h4 {
+                    color: var(--color-secondary);
+                }
+    
+                & > p {
+                    color: var(--color-light);
+                    
+                    font-size: 0.8rem;
+                }
+            }
+
+            .form-input-group {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-bottom: 40px;
+
+                input {
+                    width: 70%;
+                    padding: 10px;
+                    border: none;
+                    border-radius: 5px;
+                    margin-right: 10px;
+                }
+            }    
         }
     }
     

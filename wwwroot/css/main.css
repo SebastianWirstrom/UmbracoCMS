@@ -773,45 +773,76 @@ footer .copyright {
   margin-right: 5px;
 }
 
-.service-details {
+#service-details {
   padding-top: 50px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.5fr;
   max-width: 1200px;
   margin: 0 auto;
 }
-.service-details .container {
+#service-details .container {
   max-width: 900px;
   grid-column: 2/3;
+  margin-left: -80px;
 }
-.service-details .container span {
+#service-details .container span {
   color: var(--color-default);
 }
-.service-details .container img {
+#service-details .container img {
   margin-bottom: 10px;
 }
-.service-details .container ul {
+#service-details .container ul {
   padding-left: 15px;
   line-height: 2;
 }
-.service-details .container ul li::marker {
+#service-details .container ul li::marker {
   color: var(--color-secondary);
 }
-.service-details #service-article-aside {
+#service-details #service-article-aside {
   grid-column: 1/2;
   margin-top: 60px;
   margin-bottom: 70px;
-  width: 80%;
+  width: 75%;
   border-right: 1px solid #eaeaea;
 }
-.service-details #service-article-aside > a > img {
+#service-details #service-article-aside > a > img {
   width: 300px;
 }
-.service-details #service-article-aside > a p {
+#service-details #service-article-aside > a p {
   padding-top: 20px;
   font-size: 0.8rem;
   color: var(--color-default);
   margin-right: 50px;
+}
+#service-details #service-article-aside .mini-form-container {
+  background-color: var(--color-primary);
+  margin-right: 55px;
+  margin-top: 40px;
+  border-radius: 5px;
+}
+#service-details #service-article-aside .mini-form-container .mini-form-title {
+  padding: 20px;
+  text-align: left;
+}
+#service-details #service-article-aside .mini-form-container .mini-form-title > h4 {
+  color: var(--color-secondary);
+}
+#service-details #service-article-aside .mini-form-container .mini-form-title > p {
+  color: var(--color-light);
+  font-size: 0.8rem;
+}
+#service-details #service-article-aside .mini-form-container .form-input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 40px;
+}
+#service-details #service-article-aside .mini-form-container .form-input-group input {
+  width: 70%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
 }
 
 .project-details {
