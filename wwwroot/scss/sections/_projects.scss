@@ -132,25 +132,69 @@
         }
       }
   
-      .project-tags {
+      .projects-aside {
         border-left: 1px solid #eaeaea;
-        margin-left: 30px;
-        padding-left: 20px;
-  
-        .tags {
-          display: block;
-          width: 100%;
-  
-          a {
-            color: var(--color-dark);
-            border: 1px solid #cecece;
-            border-radius: 25px;
-            padding: 15px 15px 0 15px;
-            line-height: 1;
-            margin: 10px 5px 10px 5px;
+
+        .project-tags {
+          margin-left: 20px;
+          padding-left: 20px;
+    
+          .tags {
+            display: block;
+            width: 100%;
+    
+            a {
+              color: var(--color-dark);
+              border: 1px solid #cecece;
+              border-radius: 25px;
+              padding: 15px 15px 0 15px;
+              line-height: 1;
+              margin: 10px 5px 10px 5px;
+            }
           }
         }
+  
+        .mini-form-container {
+          background-color: var(--color-primary);
+          margin-right: 55px;
+          margin-top: 40px;
+          border-radius: 5px;
+          
+          margin-left: 50px;
+          
+      
+  
+            .mini-form-title {
+              padding: 20px;
+              text-align: left;
+  
+              & > h4 {
+                  color: var(--color-secondary);
+              }
+  
+              & > p {
+                  color: var(--color-light);
+                  
+                  font-size: 0.8rem;
+              }
+            }
+  
+            .form-input-group {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              padding-bottom: 40px;
+  
+              input {
+                width: 70%;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+                margin-right: 10px;
+              }
+            }    
+          }
+      }
       }
     }
-  }
   

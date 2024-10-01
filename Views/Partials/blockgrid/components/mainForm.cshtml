@@ -1,0 +1,50 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var sectionTitle = Model?.Content.Value<string>("sectionTitle") ?? "";
+    var headline = Model?.Content.Value<string>("headline") ?? "";
+
+    var formInput = Model?.Content.Value<string>("formInput") ?? "";
+    var formEmail = Model?.Content.Value<string>("formEmail") ?? "";
+    var formPhone = Model?.Content.Value<string>("formPhone") ?? "";
+
+    // Hämta alternativen från `umbraco.dropdown.flexible`
+    var formDropDown = Model?.Content.Value<IEnumerable<string>>("formDropDown") ?? new List<string>();
+
+    var formButton = Model?.Content.Value<string>("formButton") ?? "";
+}
+
+<section id="main-form">
+    <h2>@sectionTitle</h2>
+    <p>@headline</p>
+
+    <form novalidate>
+        <div class="form-input-group">
+            <input type="text" placeholder="@formInput" />
+        </div>
+        <div class="form-input-group">
+            <input type="email" placeholder="@formEmail" />
+        </div>
+        <div class="form-input-group">
+            <select id="dropdown" name="dropdown" class="form-select-option">
+                @if (formDropDown != null && formDropDown.Any()) // Kontrollera om det finns några alternativ
+                {
+                    @foreach (var item in formDropDown)
+                    {
+                        <option value="@item">@item</option>
+                    }
+                }
+                else
+                {
+                    <option value="" disabled>No options available</option>
+                }
+            </select>
+        </div>
+        <div class="form-input-group">
+            <input type="tel" placeholder="@formPhone" />
+        </div>
+    </form>
+    <button class="btn btn-submit">@formButton</button>
+</section>

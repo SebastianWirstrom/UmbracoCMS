@@ -93,7 +93,10 @@
             </section>
             
         </div> 
-        @await Html.PartialAsync("partials/blockgrid/components/projectTags.cshtml", allTags)
+        <div class="projects-aside">
+            @await Html.PartialAsync("partials/blockgrid/components/projectTags.cshtml", allTags)
+            @await Html.PartialAsync("~/Views/Partials/blockgrid/components/miniForm.cshtml")
+        </div>
         
     </div>
 </section>
