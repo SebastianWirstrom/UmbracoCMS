@@ -17,8 +17,13 @@
 }
 
 <section id="main-form">
-    <h2>@sectionTitle</h2>
-    <p>@headline</p>
+    <div class="main-form-title">
+        <h3>@sectionTitle</h3>
+    </div>
+    <div class="main-form-headline">
+        <p>@headline</p>
+    </div>
+    
 
     <form novalidate>
         <div class="form-input-group">
@@ -45,6 +50,9 @@
         <div class="form-input-group">
             <input type="tel" placeholder="@formPhone" />
         </div>
+        <div class="form-input-group">
+            <button class="btn">@formButtonText</button>
+        </div>
     </form>
-    <button class="btn btn-submit">@formButtonText</button>
+    
 </section>

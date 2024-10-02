@@ -375,8 +375,58 @@ header .container .search {
 }
 
 #main-form {
-  background-color: #fa1818;
-  padding: 50px 0 50px 0;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+}
+#main-form .main-form-title {
+  background-color: var(--color-primary);
+  padding: 20px 20px 5px 30px;
+}
+#main-form .main-form-title h3 {
+  color: var(--color-secondary);
+}
+#main-form .main-form-headline {
+  padding: 20px 20px 0px 30px;
+}
+#main-form .main-form-headline p {
+  font-style: italic;
+  font-size: 0.9rem;
+}
+#main-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 30px 5px 30px;
+  row-gap: 20px;
+  margin-bottom: 10px;
+}
+#main-form form .form-input-group {
+  width: 100%;
+}
+#main-form form .form-input-group input, #main-form form .form-input-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #eaeaea;
+  font-style: italic;
+}
+#main-form form .form-input-group select {
+  font-style: normal;
+  background-color: var(--color-light);
+}
+#main-form form .form-input-group button {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  width: 100%;
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  border: none;
+  padding: 10px 0 10px 0;
+  font-weight: 600;
+}
+#main-form form .form-input-group:last-child {
+  padding-bottom: 20px;
 }
 
 #about-tina-fox {
@@ -387,6 +437,9 @@ header .container .search {
   margin-bottom: 15px;
 }
 
+#our-services .container {
+  padding: 100px 0 100px 0;
+}
 #our-services .container .headline {
   display: flex;
   justify-content: center;
