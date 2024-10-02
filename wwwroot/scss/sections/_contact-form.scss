@@ -1,0 +1,82 @@
+#contact-us-form {
+    position: relative;
+    padding-bottom: 250px;
+    
+    .background-image {
+        position: relative;
+    }
+
+    .container {
+        .contact-us-form-div {
+            position: absolute;
+            top: -330px;
+            left: 0;
+            text-align: center;
+            padding: 80px 50px 100px 50px;
+            box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+                
+            .contact-us-form-title {
+                padding: 0 250px 20px 250px;
+                
+                p {
+                    margin-top: 30px;
+                    font-style: italic;
+                }
+            }
+
+            form {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+                gap: 20px;
+                grid-template-areas: 
+                  "name phone"
+                  "email dropDown"
+                  "button button";
+                
+                .form-input-group {
+                    
+                    &.name {
+                        grid-area: name;
+                    }
+            
+                    &.phone {
+                        grid-area: phone;
+                    }
+            
+                    &.email {
+                        grid-area: email;
+                    }
+            
+                    &.dropDown {
+                        grid-area: dropDown;
+                    }
+            
+                    input, select {
+                        font-style: italic;
+                        width: 100%;
+                        padding: 12px;
+                        font-size: 16px;
+                        border: 1px solid #dddddd;
+                        border-radius: 5px;
+                    }
+                    select {
+                        font-style: normal;
+                        background-color: var(--color-light);
+                    }                  
+                }
+            }
+            button {
+                @include btn;
+                padding: 15px 40px;
+                background-color: var(--color-primary);
+                border: none;
+
+                &:hover {
+                    background-color: var(--color-secondary);
+                    color: var(--color-default);
+                }
+            }
+        }
+    }
+}

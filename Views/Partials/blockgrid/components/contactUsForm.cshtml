@@ -1,0 +1,56 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var sectionTitle = Model?.Content.Value<string>("sectionTitle") ?? "";
+    var headline = Model?.Content.Value<string>("headline") ?? "";
+    var subtitle = Model?.Content.Value<string>("subtitle") ?? "";
+
+    var formName = Model?.Content.Value<string>("formName") ?? "";
+    var formEmail = Model?.Content.Value<string>("formEmail") ?? "";
+    var formPhone = Model?.Content.Value<string>("formPhone") ?? "";
+
+    var formDropDown = Model.Content.Value<string>("formDropDown");
+    var optionsList = formDropDown?.Split(',') ?? new string[0];
+
+    var formButtonText = Model?.Content.Value<string>("formButtonText") ?? "";
+}
+
+<div class="contact-us-form-div bg-light">
+    <div class="contact-us-form-title">
+        <h6>@headline</h6>
+        <h2>@sectionTitle</h2>
+        <p>@subtitle</p>
+    </div>
+    <form novalidate>
+        <div class="form-input-group">
+            <input type="text" name="name" placeholder="@formName" />
+        </div>
+        <div class="form-input-group">
+            <input type="tel" name="phone" placeholder="@formPhone" />
+        </div>
+        <div class="form-input-group">
+            <input type="email" name="email" placeholder="@formEmail" />
+        </div>
+        <div class="form-input-group">
+            <select id="formDropDown" name="formDropDown" class="form-select-option">
+                @if (optionsList.Any())
+                {
+                    @foreach (var item in optionsList)
+                    {
+                        <option value="@item.Trim()">@item.Trim()</option>
+                    }
+                }
+                else
+                {
+                    <option value="" disabled>No options available</option>
+                }
+            </select>
+        </div>
+        
+        
+    </form>
+    <button class="btn btn-primary" onclick="submit">@formButtonText</button>
+</div>
+

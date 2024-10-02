@@ -1125,3 +1125,82 @@ footer .copyright {
 #contact-us .contact-us-block .container .contact-us-info .contact-items .contact-item .contact-item-text .contact-us-info-text {
   margin-bottom: 20px;
 }
+
+#contact-us-form {
+  position: relative;
+  padding-bottom: 250px;
+}
+#contact-us-form .background-image {
+  position: relative;
+}
+#contact-us-form .container .contact-us-form-div {
+  position: absolute;
+  top: -330px;
+  left: 0;
+  text-align: center;
+  padding: 80px 50px 100px 50px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+#contact-us-form .container .contact-us-form-div .contact-us-form-title {
+  padding: 0 250px 20px 250px;
+}
+#contact-us-form .container .contact-us-form-div .contact-us-form-title p {
+  margin-top: 30px;
+  font-style: italic;
+}
+#contact-us-form .container .contact-us-form-div form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 20px;
+  grid-template-areas: "name phone" "email dropDown" "button button";
+}
+#contact-us-form .container .contact-us-form-div form .form-input-group.name {
+  grid-area: name;
+}
+#contact-us-form .container .contact-us-form-div form .form-input-group.phone {
+  grid-area: phone;
+}
+#contact-us-form .container .contact-us-form-div form .form-input-group.email {
+  grid-area: email;
+}
+#contact-us-form .container .contact-us-form-div form .form-input-group.dropDown {
+  grid-area: dropDown;
+}
+#contact-us-form .container .contact-us-form-div form .form-input-group input, #contact-us-form .container .contact-us-form-div form .form-input-group select {
+  font-style: italic;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+}
+#contact-us-form .container .contact-us-form-div form .form-input-group select {
+  font-style: normal;
+  background-color: var(--color-light);
+}
+#contact-us-form .container .contact-us-form-div button {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 1px solid;
+  padding: 15px 40px;
+  font-size: 16px;
+  transition: 0.25s;
+  text-decoration: none !important;
+  background-color: transparent;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  padding: 15px 40px;
+  background-color: var(--color-primary);
+  border: none;
+}
+#contact-us-form .container .contact-us-form-div button:hover {
+  transition: 0.25s;
+  text-decoration: none;
+}
+#contact-us-form .container .contact-us-form-div button:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-default);
+}
