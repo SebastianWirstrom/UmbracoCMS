@@ -10,10 +10,10 @@
     var formEmail = Model?.Content.Value<string>("formEmail") ?? "";
     var formPhone = Model?.Content.Value<string>("formPhone") ?? "";
 
-    // Hämta alternativen från `umbraco.dropdown.flexible`
-    var formDropDown = Model?.Content.Value<IEnumerable<string>>("formDropDown") ?? new List<string>();
+    var formDropDown = Model.Content.Value<string>("formDropDown");
+    var optionsList = formDropDown?.Split(',') ?? new string[0];
 
-    var formButton = Model?.Content.Value<string>("formButton") ?? "";
+    var formButtonText = Model?.Content.Value<string>("formButtonText") ?? "";
 }
 
 <section id="main-form">
@@ -28,12 +28,12 @@
             <input type="email" placeholder="@formEmail" />
         </div>
         <div class="form-input-group">
-            <select id="dropdown" name="dropdown" class="form-select-option">
-                @if (formDropDown != null && formDropDown.Any()) // Kontrollera om det finns några alternativ
+            <select id="formDropDown" name="formDropDown" class="form-select-option">
+                @if (optionsList.Any())
                 {
-                    @foreach (var item in formDropDown)
+                    @foreach (var item in optionsList)
                     {
-                        <option value="@item">@item</option>
+                        <option value="@item.Trim()">@item.Trim()</option>
                     }
                 }
                 else
@@ -46,5 +46,5 @@
             <input type="tel" placeholder="@formPhone" />
         </div>
     </form>
-    <button class="btn btn-submit">@formButton</button>
+    <button class="btn btn-submit">@formButtonText</button>
 </section>
