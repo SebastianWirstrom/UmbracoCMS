@@ -415,6 +415,15 @@ header .container .search {
   background-color: var(--color-light);
 }
 #main-form form .form-input-group button {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 1px solid;
+  padding: 15px 40px;
+  font-size: 16px;
+  transition: 0.25s;
+  text-decoration: none !important;
+  background-color: transparent;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -424,6 +433,14 @@ header .container .search {
   border: none;
   padding: 10px 0 10px 0;
   font-weight: 600;
+}
+#main-form form .form-input-group button:hover {
+  transition: 0.25s;
+  text-decoration: none;
+}
+#main-form form .form-input-group button:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-gray);
 }
 #main-form form .form-input-group:last-child {
   padding-bottom: 20px;

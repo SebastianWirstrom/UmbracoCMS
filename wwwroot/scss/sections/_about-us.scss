@@ -51,13 +51,18 @@
             }
 
             button {
-                @include button;
+                @include btn;
                 width: 100%;
                 background-color: var(--color-accent);
                 color: var(--color-primary);
                 border: none;
                 padding: 10px 0 10px 0;
                 font-weight: 600;
+
+                &:hover {
+                    background-color: var(--color-secondary);
+                    color: var(--color-gray);
+                }
             }
             &:last-child {
                 padding-bottom: 20px;
