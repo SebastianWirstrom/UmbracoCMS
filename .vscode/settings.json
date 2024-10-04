@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/07918666-bb57-4857-bded-5c919a8724ca/resourceGroups/Umbraco/providers/Microsoft.Web/sites/umbracosebwir",
+    "appService.deploySubpath": "bin\\Publish"
+}
